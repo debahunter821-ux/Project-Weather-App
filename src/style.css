@@ -79,12 +79,12 @@ main {
   font-size: 88px;
   margin-left: 10px;
   font-weight: bold;
+  line-height: 88px;
 }
 
 .weather-app-icon {
-  width: 80px;
-  height: 80px;
-  
+  width: 88px;
+  height: 88px;
 }
 
 .weather-app-unit {

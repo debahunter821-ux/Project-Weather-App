@@ -7,6 +7,10 @@ function refreshWeather(response) {
   let windSpeedElement = document.querySelector("#windSpeed");
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
+
+  iconElement.innerHTML =
+    '<img src="${response.data.condition.icon_url}" class="weather-app-icon" />';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -32,8 +36,6 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
 }
-
-
 
 function searchCity(city) {
   let apiKey = "b9b1b4daa090630f08fbtfdd5e40dofd";
