@@ -47,7 +47,31 @@ function handleSearchSubmit(event) {
   searchCity(searchInputElement.value.trim());
 }
 
+function displayForecast() {
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `   
+    <div class="weather-app-forecast-day">
+      <div class="weather-app-forecast-date">${day}</div>
+      <div class="weather-app-forecast-icon">⛅️</div>
+      <div class="weather-app-forecast-temperatures">
+        <div class="temp-high">19°</div>
+        <div class="temp-low">9°</div>
+      </div>
+    </div>
+  `;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("London");
+displayForecast();
