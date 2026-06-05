@@ -85,6 +85,23 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
+
+  if (response.data.daily && response.data.daily.length > 0) {
+    const maxTemp = response.data.daily[0].temperature.maximum;
+    if (maxTemp >= 16) {
+      forecastElement.style.color = "red";
+    } else if (maxTemp < 16) {
+      forecastElement.style.color = "orange";
+    } else if (maxTemp < 10) {
+      forecastElement.style.color = "blue";
+    }
+    if (response.data.daily && response.data.daily.length > 0) {
+      const minTemp = response.data.daily[0].temperature.minimum;
+      if (minTemp <= 10) {
+        forecastElement.style.color = "blue";
+      }
+    }
+  }
 }
 
 let searchFormElement = document.querySelector("#search-form");
